@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Char Gen",
+  "name": "RPG Character Generator",
   "icons": [
     {
       "src": "favicon.ico",
