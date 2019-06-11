@@ -4,7 +4,7 @@ import "../styles/index.css";
 
 const Header = () => {
   return (
-    <>
+    <div className="header">
       <div>
         <h1 className="headerH1">Coder Character Builder</h1>
       </div>
@@ -17,14 +17,29 @@ const Header = () => {
         >
           Home
         </NavLink>
-        <NavLink activeClassName="is-active" className="navLink" to="/races">
-          Races
+        <NavLink
+          activeClassName="is-active"
+          className="navLink"
+          to="/character"
+        >
+          Character
         </NavLink>
-        <NavLink activeClassName="is-active" className="navLink" to="/classes">
-          Classes
+        <NavLink
+          activeClassName="is-active"
+          className="navLink"
+          to="/specialty"
+        >
+          Specialty
+        </NavLink>
+        <NavLink
+          activeClassName="is-active"
+          className="navLink"
+          to="/description"
+        >
+          Description
         </NavLink>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,22 +1,26 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import App from "../components/App";
+import Home from "../components/Home";
 import Header from "../components/Header";
-import RacesPage from "../components/RacesPage";
-import ClassesPage from "../components/ClassesPage";
+import SpecialtyPage from "../components/SpecialtyPage";
+import CharacterPage from "../components/CharacterPage";
+import DescriptionPage from "../components/DescriptionPage";
 import ErrorPage from "../components/ErrorPage";
-import "../styles/index.css";
+// import "../styles/index.css";
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div className="app">
-      <Header />
-      <Switch>
-        <Route path="/" component={App} exact={true} />
-        <Route path="/races" component={RacesPage} />
-        <Route path="/classes" component={ClassesPage} />
-        <Route path="/*" component={ErrorPage} />
-      </Switch>
+    <div>
+      <Header className="header" />
+      <div className="main">
+        <Switch>
+          <Route path="/" component={Home} exact={true} />
+          <Route path="/specialty" component={SpecialtyPage} />
+          <Route path="/character" component={CharacterPage} />
+          <Route path="/description" component={DescriptionPage} />
+          <Route path="/*" component={ErrorPage} />
+        </Switch>
+      </div>
     </div>
   </BrowserRouter>
 );
