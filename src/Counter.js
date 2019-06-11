@@ -14,7 +14,7 @@ class Counter extends React.Component {
   render() {
     return (
       <div className="counter">
-        <h2>Counter</h2>
+        <h2>Redux Testing Counter</h2>
         <div>
           <button onClick={this.decrement}>&ndash;</button>
           <span className="count">{this.props.count}</span>
@@ -25,8 +25,8 @@ class Counter extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  count: state.count
+const mapStateToProps = store => ({
+  count: store.counterReducer.count
 })
 
 export default connect(mapStateToProps)(Counter);
