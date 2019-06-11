@@ -1,10 +1,23 @@
-.app {
-  width: 75%;
+body {
+  background-image: url("web-design-2906159_960_720.jpg");
+  height: 75%;
+  background-repeat: repeat;
+  background-size: cover;
+  color: white;
+}
+
+.main {
+  width: 40%;
   margin: 0 auto;
 }
 
 /******* HEADER STYLING *******/
 /* style for navlink */
+.header {
+  width: 100%;
+  margin-left: 40%;
+  color: white;
+}
 
 .headerH1 {
   margin: 0 auto;
@@ -19,11 +32,11 @@
 
 .navLink {
   text-decoration: none;
-  color: black;
+  color: white;
   margin-left: 10px;
 }
 
 .is-active {
   font-weight: bold;
-  background: lightgray;
+  text-decoration: underline;
 }
