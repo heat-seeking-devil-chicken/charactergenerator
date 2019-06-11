@@ -1,11 +1,10 @@
 import React from "react";
-import "./App.css";
+import "../styles/index.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header" />
-      <h1>Character Generator App</h1>
+      <p>welcome to character creator</p>
     </div>
   );
 }
