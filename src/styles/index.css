@@ -1,0 +1,29 @@
+.app {
+  width: 75%;
+  margin: 0 auto;
+}
+
+/******* HEADER STYLING *******/
+/* style for navlink */
+
+.headerH1 {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headerNav {
+  display: flex;
+  /* align-content: space-between; */
+  margin: 0 auto;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.is-active {
+  font-weight: bold;
+  background: lightgray;
+}
