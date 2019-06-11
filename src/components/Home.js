@@ -87,9 +87,7 @@ class Home extends React.Component {
           placeholder="ex. Silver the unSober"
           value={this.state.name}
           onChange={e => this.setState({ name: e.target.value })}
-        >
-          {/* {this.state.name} */}
-        </input>
+        />
         <button onClick={e => this.randomName()}>Randomized Name</button>
         <hr />
 
