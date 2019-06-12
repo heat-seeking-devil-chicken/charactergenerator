@@ -14,15 +14,15 @@ function counterReducer(state = initialState, action) {
   switch (action.type) {
     case types.HOMEUPDATE:
       console.log(action.payload);
-      let name = action.payload.name;
-      let advancementType = action.payload.advancementType;
-      let codingSkillsType = action.payload.codingSkillsType;
+      // let name = action.payload.name;
+      // let advancementType = action.payload.advancementType;
+      // let codingSkillsType = action.payload.codingSkillsType;
 
       return {
         ...state,
-        name,
-        advancementType,
-        codingSkillsType
+        name: action.payload.name,
+        advancementType: action.payload.advancementType,
+        codingSkillsType: action.payload.codingSkillsType
       };
 
     case types.STEREOTYPEUPDATE:
