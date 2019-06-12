@@ -6,10 +6,21 @@ import Typography from "@material-ui/core/Typography";
 
 const CharacterPage = () => {
   const [expanded, setExpanded] = React.useState(false);
+  const [typingSpeed, setTypingSpeed] = React.useState(10);
+  const [javascript, setJavascript] = React.useState(10);
+  const [sleepResistance, setSleepResistance] = React.useState(10);
+  const [googleFu, setGoogleFu] = React.useState(10);
+  const [hygiene, setHygiene] = React.useState(10);
 
   const handleChange = panel => isExpanded => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  console.log("typingSpeed", typingSpeed);
+  console.log("javascript", javascript);
+  console.log("sleepResistance", sleepResistance);
+  console.log("googleFu", googleFu);
+  console.log("hygiene", hygiene);
 
   return (
     <div>
@@ -23,7 +34,22 @@ const CharacterPage = () => {
           <Typography>Brogrammer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>Here's someinfo about the thing</Typography>
+          <Typography>
+            Here's someinfo about the thing
+            <br />
+            here's something else
+          </Typography>
+          <button
+            onClick={() => {
+              setTypingSpeed(4);
+              setJavascript(4);
+              setSleepResistance(3);
+              setGoogleFu(10);
+              setHygiene(10);
+            }}
+          >
+            Choose stereotype
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -36,6 +62,17 @@ const CharacterPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
+          <button
+            onClick={() => {
+              setTypingSpeed(4);
+              setJavascript(4);
+              setSleepResistance(3);
+              setGoogleFu(10);
+              setHygiene(10);
+            }}
+          >
+            Choose stereotype
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -48,6 +85,17 @@ const CharacterPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
+          <button
+            onClick={() => {
+              setTypingSpeed(4);
+              setJavascript(4);
+              setSleepResistance(3);
+              setGoogleFu(10);
+              setHygiene(10);
+            }}
+          >
+            Choose stereotype
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -60,6 +108,17 @@ const CharacterPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
+          <button
+            onClick={() => {
+              setTypingSpeed(4);
+              setJavascript(4);
+              setSleepResistance(3);
+              setGoogleFu(10);
+              setHygiene(10);
+            }}
+          >
+            Choose stereotype
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
