@@ -1,13 +1,18 @@
 import * as types from "../constants/actionTypes";
 
 const initialState = {
-  count: 42,
   name: "",
   advancementType: "",
   codingSkillsType: "",
   stereotype: "",
   speciality: "",
-  characters: []
+  characterSkills: {
+    typingSpeed: 1,
+    javascript: 1,
+    sleepResistance: 1,
+    googleFu: 1,
+    hygiene: 1
+  }
 };
 
 function counterReducer(state = initialState, action) {
@@ -26,7 +31,9 @@ function counterReducer(state = initialState, action) {
       };
 
     case types.STEREOTYPEUPDATE:
-      return {};
+      return {
+        ...state
+      };
 
     case types.SPECIALTYUPDATE:
       return {};
