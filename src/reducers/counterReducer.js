@@ -1,21 +1,35 @@
-import * as types from '../constants/actionTypes';
-
+import * as types from "../constants/actionTypes";
 
 const initialState = {
-  count: 42
-}
+  count: 42,
+  name: "",
+  advancementType: "",
+  codingSkillsType: "",
+  stereotype: "",
+  speciality: "",
+  characters: []
+};
 
 function counterReducer(state = initialState, action) {
   switch (action.type) {
-    case types.INCREMENT:
-      return {
-        count: state.count + 1
-      }
+    case types.HOMEUPDATE:
+      console.log(action.payload);
+      let name = action.payload.name;
+      let advancementType = action.payload.advancementType;
+      let codingSkillsType = action.payload.codingSkillsType;
 
-    case types.DECREMENT:
       return {
-        count: state.count - 1
-      }
+        ...state,
+        name,
+        advancementType,
+        codingSkillsType
+      };
+
+    case types.STEREOTYPEUPDATE:
+      return {};
+
+    case types.SPECIALTYUPDATE:
+      return {};
 
     default:
       return state;

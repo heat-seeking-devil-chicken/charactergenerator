@@ -7,6 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import { ArrowForward, ArrowBack } from "@material-ui/icons";
 
 const SpecialtyPage = () => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   const leftButton = {
     position: "absolute",
     top: "30%",
@@ -25,15 +31,18 @@ const SpecialtyPage = () => {
 
   return (
     <div>
-      <p>Choose Your Specialty</p>
-      <select>
+      <h1>Choose Your Specialty</h1>
+      {/* <select>
         <option value="Front End Developer">Front End Developer</option>
         <option value="Back End Developer">Back End Developer</option>
         <option value="Full Stack Developer">Full Stack Developer</option>
         <option value="DevOps">DevOps</option>
-      </select>
+      </select> */}
 
-      <ExpansionPanel>
+      <ExpansionPanel
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
+      >
         <ExpansionPanelSummary>
           <Typography>Front End Developer</Typography>
         </ExpansionPanelSummary>
@@ -42,7 +51,10 @@ const SpecialtyPage = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel>
+      <ExpansionPanel
+        expanded={expanded === "panel2"}
+        onChange={handleChange("panel2")}
+      >
         <ExpansionPanelSummary>
           <Typography>Back End Developer</Typography>
         </ExpansionPanelSummary>
@@ -51,7 +63,10 @@ const SpecialtyPage = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel>
+      <ExpansionPanel
+        expanded={expanded === "panel3"}
+        onChange={handleChange("panel3")}
+      >
         <ExpansionPanelSummary>
           <Typography>Full Stack Developer</Typography>
         </ExpansionPanelSummary>
@@ -60,7 +75,10 @@ const SpecialtyPage = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel>
+      <ExpansionPanel
+        expanded={expanded === "panel4"}
+        onChange={handleChange("panel4")}
+      >
         <ExpansionPanelSummary>
           <Typography>DevOps Engineer</Typography>
         </ExpansionPanelSummary>
@@ -69,7 +87,7 @@ const SpecialtyPage = () => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <div>
+      {/* <div>
         <Link to="/character">
           <button style={leftButton}>
             <ArrowBack />
@@ -80,7 +98,7 @@ const SpecialtyPage = () => {
             <ArrowForward />
           </button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
