@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import * as actions from "../actions/actions";
+import { connect } from "react-redux";
 
 import "../styles/index.css";
 
@@ -7,6 +9,21 @@ import { ArrowForward, ArrowBack } from "@material-ui/icons";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+
+const mapDispatchToProps = dispatch => ({
+  homeUpdate: payload => dispatch(actions.homeUpdate(payload)),
+  stereotypeUpdate: payload => dispatch(actions.stereotypeUpdate(payload)),
+  specialtyUpdate: payload => dispatch(actions.specialtyUpdate(payload))
+});
+
+const mapStateToProps = store => ({
+  name: store.counterReducer.name,
+  advancementType: store.counterReducer.advancementType,
+  codingSkillsType: store.counterReducer.codingSkillsType,
+  stereotype: store.counterReducer.stereotype,
+  specialty: store.counterReducer.specialty,
+  characterSkills: store.counterReducer.characterSkills
+});
 
 const Header = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -39,6 +56,8 @@ const Header = () => {
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     // dispach action creator
+    if (steps[activeStep] === "Home") {
+    }
   }
 
   function handleBack() {
@@ -103,4 +122,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

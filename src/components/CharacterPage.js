@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const CharacterPage = props => {
-  const [stereotype, setStereoType] = React.useState("");
   const [expanded, setExpanded] = React.useState(false);
+  const [stereotype, setStereoType] = React.useState("");
   const [typingSpeed, setTypingSpeed] = React.useState(10);
   const [javascript, setJavascript] = React.useState(10);
   const [sleepResistance, setSleepResistance] = React.useState(10);

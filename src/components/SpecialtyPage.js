@@ -21,7 +21,7 @@ const SpecialtyPage = props => {
     });
   }
 
-  const handleChange = panel => isExpanded => {
+  const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
@@ -32,7 +32,11 @@ const SpecialtyPage = props => {
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
-        <ExpansionPanelSummary>
+        <ExpansionPanelSummary
+          onClick={() => {
+            setSpecialty("Front-End Developer");
+          }}
+        >
           <Typography>Front End Developer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -56,6 +60,13 @@ const SpecialtyPage = props => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
+          <button
+            onClick={() => {
+              setSpecialty("Back-End Developer");
+            }}
+          >
+            Select Specialty
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -68,6 +79,13 @@ const SpecialtyPage = props => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
+          <button
+            onClick={() => {
+              setSpecialty("Full-Stack Developer");
+            }}
+          >
+            Select Specialty
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -80,22 +98,16 @@ const SpecialtyPage = props => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
+          <button
+            onClick={() => {
+              setSpecialty("DevOps Engineer");
+            }}
+          >
+            Select Specialty
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <button onClick={saveInfo}>Save Specialty</button>
-
-      {/* <div>
-        <Link to="/character">
-          <button style={leftButton}>
-            <ArrowBack />
-          </button>
-        </Link>
-        <Link to="/description">
-          <button style={rightButton}>
-            <ArrowForward />
-          </button>
-        </Link>
-      </div> */}
     </div>
   );
 };

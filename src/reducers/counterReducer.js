@@ -2,27 +2,27 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   name: "",
-  advancementType: "",
-  codingSkillsType: "",
-  stereotype: "",
+  advancementType: "Milestone",
+  codingSkillsType: "Manual",
   specialty: "",
+  stereotype: "",
   characterSkills: {
-    typingSpeed: 1,
-    javascript: 1,
-    sleepResistance: 1,
-    googleFu: 1,
-    hygiene: 1
+    typingSpeed: 10,
+    javascript: 10,
+    sleepResistance: 10,
+    googleFu: 10,
+    hygiene: 10
   }
 };
 
 function counterReducer(state = initialState, action) {
   switch (action.type) {
     case types.HOMEUPDATE:
+      console.log(action.payload);
+      const info = action.payload;
       return {
         ...state,
-        name: action.payload.name,
-        advancementType: action.payload.advancementType,
-        codingSkillsType: action.payload.codingSkillsType
+        ...info
       };
 
     case types.STEREOTYPEUPDATE:

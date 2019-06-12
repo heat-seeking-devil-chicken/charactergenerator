@@ -6,11 +6,17 @@ const mapStateToProps = store => ({
   advancementType: store.counterReducer.advancementType,
   codingSkillsType: store.counterReducer.codingSkillsType,
   stereotype: store.counterReducer.stereotype,
-  specialty: store.counterReducer.specialty
+  specialty: store.counterReducer.specialty,
+  characterSkills: store.counterReducer.characterSkills
 });
 
 const Description = props => {
-  // console.log(props);
+  const skillNums = [];
+
+  for (const prop in props.characterSkills) {
+    skillNums.push(<p key={prop}>{prop}</p>);
+  }
+
   return (
     <div>
       <p>{props.name}</p>
@@ -18,6 +24,7 @@ const Description = props => {
       <p>{props.codingSkillsType}</p>
       <p>{props.stereotype}</p>
       <p>{props.specialty}</p>
+      <div>{skillNums}</div>
     </div>
   );
 };
