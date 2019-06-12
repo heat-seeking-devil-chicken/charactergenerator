@@ -18,11 +18,6 @@ const initialState = {
 function counterReducer(state = initialState, action) {
   switch (action.type) {
     case types.HOMEUPDATE:
-      console.log(action.payload);
-      // let name = action.payload.name;
-      // let advancementType = action.payload.advancementType;
-      // let codingSkillsType = action.payload.codingSkillsType;
-
       return {
         ...state,
         name: action.payload.name,
@@ -31,8 +26,24 @@ function counterReducer(state = initialState, action) {
       };
 
     case types.STEREOTYPEUPDATE:
+      const {
+        stereotype,
+        typingSpeed,
+        javascript,
+        sleepResistance,
+        googleFu,
+        hygiene
+      } = action.payload;
       return {
-        ...state
+        ...state,
+        stereotype,
+        characterSkills: {
+          typingSpeed,
+          javascript,
+          sleepResistance,
+          googleFu,
+          hygiene
+        }
       };
 
     case types.SPECIALTYUPDATE:
