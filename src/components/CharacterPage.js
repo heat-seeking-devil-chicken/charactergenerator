@@ -1,10 +1,18 @@
 import React from "react";
+import * as actions from "../actions/actions";
+import { connect } from "react-redux";
+
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 
-const CharacterPage = () => {
+const mapDispatchToProps = dispatch => ({
+  stereotypeUpdate: payload => dispatch(actions.stereotypeUpdate(payload))
+});
+
+const CharacterPage = props => {
+  const [stereotype, setStereoType] = React.useState("");
   const [expanded, setExpanded] = React.useState(false);
   const [typingSpeed, setTypingSpeed] = React.useState(10);
   const [javascript, setJavascript] = React.useState(10);
@@ -12,15 +20,20 @@ const CharacterPage = () => {
   const [googleFu, setGoogleFu] = React.useState(10);
   const [hygiene, setHygiene] = React.useState(10);
 
-  const handleChange = panel => isExpanded => {
+  const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  console.log("typingSpeed", typingSpeed);
-  console.log("javascript", javascript);
-  console.log("sleepResistance", sleepResistance);
-  console.log("googleFu", googleFu);
-  console.log("hygiene", hygiene);
+  function saveInfo() {
+    props.stereotypeUpdate({
+      stereotype,
+      typingSpeed,
+      javascript,
+      sleepResistance,
+      googleFu,
+      hygiene
+    });
+  }
 
   return (
     <div>
@@ -34,18 +47,15 @@ const CharacterPage = () => {
           <Typography>Brogrammer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-            Here's someinfo about the thing
-            <br />
-            here's something else
-          </Typography>
+          <Typography>Here's someinfo about the thing</Typography>
           <button
             onClick={() => {
-              setTypingSpeed(4);
-              setJavascript(4);
-              setSleepResistance(3);
+              setStereoType("Brogrammer");
+              setTypingSpeed(12);
+              setJavascript(11);
+              setSleepResistance(14);
               setGoogleFu(10);
-              setHygiene(10);
+              setHygiene(6);
             }}
           >
             Choose stereotype
@@ -64,6 +74,7 @@ const CharacterPage = () => {
           <Typography>Here's someinfo about the thing</Typography>
           <button
             onClick={() => {
+              setStereoType("Hacker");
               setTypingSpeed(4);
               setJavascript(4);
               setSleepResistance(3);
@@ -87,6 +98,7 @@ const CharacterPage = () => {
           <Typography>Here's someinfo about the thing</Typography>
           <button
             onClick={() => {
+              setStereoType("Lazy Genius");
               setTypingSpeed(4);
               setJavascript(4);
               setSleepResistance(3);
@@ -110,6 +122,7 @@ const CharacterPage = () => {
           <Typography>Here's someinfo about the thing</Typography>
           <button
             onClick={() => {
+              setStereoType("Code Golfer");
               setTypingSpeed(4);
               setJavascript(4);
               setSleepResistance(3);
@@ -121,8 +134,12 @@ const CharacterPage = () => {
           </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <button onClick={saveInfo}> Save Character Choice </button>
     </div>
   );
 };
 
-export default CharacterPage;
+export default connect(
+  null,
+  mapDispatchToProps
+)(CharacterPage);
