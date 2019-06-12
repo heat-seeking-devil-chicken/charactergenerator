@@ -84,7 +84,7 @@ class Home extends React.Component {
     console.log(this.props);
     return (
       <div className="home">
-        <img className="avatar" />
+        {/* <img className="avatar" /> */}
         <h4>Character Name</h4>
         <input
           type="text"
@@ -128,12 +128,6 @@ class Home extends React.Component {
         <br />
         <br />
         <button onClick={this.saveInfo}>SAVE INFO</button>
-
-        {/* <Link to="/character">
-          <button style={rightButton}>
-            <ArrowForward />
-          </button>
-        </Link> */}
       </div>
     );
   }
