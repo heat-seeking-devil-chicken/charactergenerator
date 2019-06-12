@@ -1,6 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ArrowForward } from "@material-ui/icons";
+import * as actions from "../actions/actions";
+import { connect } from "react-redux";
+
+const mapDispatchToProps = dispatch => ({
+  homeUpdate: payload => dispatch(actions.homeUpdate(payload))
+});
 
 const names = {
   0: "Natalie",
@@ -55,9 +59,12 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      advancementType: "Milestone",
+      codingSkillsType: "Fixed"
     };
     this.randomName = this.randomName.bind(this);
+    this.saveInfo = this.saveInfo.bind(this);
   }
 
   randomName() {
@@ -69,15 +76,12 @@ class Home extends React.Component {
     console.log(this.state.name);
   }
 
-  render() {
-    const rightButton = {
-      position: "absolute",
-      top: "30%",
-      right: "25%",
-      padding: "7px 12px",
-      border: "1px solid black"
-    };
+  saveInfo() {
+    this.props.homeUpdate(this.state);
+  }
 
+  render() {
+    console.log(this.props);
     return (
       <div className="home">
         <img className="avatar" />
@@ -94,12 +98,14 @@ class Home extends React.Component {
         <h2>Character Preferences</h2>
         <h4>Advancement Type:</h4>
         <p>Milestone-based character progression / XP-based progression</p>
-        {/*not sure if it makes sense to change progression type to something more code-related 
-      <select>
-        <option value="Feature completion (Milestone)">Feature completion</option>
-        <option value="Lines of code committed (XP)">Lines of code committed</option>
-      </select> */}
-        <select>
+
+        <select
+          onChange={e =>
+            this.setState({
+              advancementType: e.target.value
+            })
+          }
+        >
           <option value="Milestone">Milestone</option>
           <option value="XP">XP</option>
         </select>
@@ -109,19 +115,31 @@ class Home extends React.Component {
           When leveling up, increase hit points (health) by the fixed value for
           your chosen class or manually enter a rolled value.
         </p>
-        <select>
+        <select
+          onChange={e =>
+            this.setState({
+              codingSkillsType: e.target.value
+            })
+          }
+        >
           <option value="Fixed">Fixed</option>
           <option value="Manual">Manual</option>
         </select>
+        <br />
+        <br />
+        <button onClick={this.saveInfo}>SAVE INFO</button>
 
-        <Link to="/character">
+        {/* <Link to="/character">
           <button style={rightButton}>
             <ArrowForward />
           </button>
-        </Link>
+        </Link> */}
       </div>
     );
   }
 }
 
-export default Home;
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);

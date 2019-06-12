@@ -21,7 +21,7 @@ const Description = () => {
 
   return (
     <div>
-      <Link to="/specialty">
+      {/* <Link to="/specialty">
         <button style={leftButton}>
           <ArrowBack />
         </button>
@@ -30,7 +30,7 @@ const Description = () => {
         <button style={rightButton}>
           <ArrowForward />
         </button>
-      </Link>
+      </Link> */}
     </div>
   );
 };
