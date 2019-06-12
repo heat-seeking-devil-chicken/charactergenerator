@@ -5,7 +5,7 @@ const initialState = {
   advancementType: "",
   codingSkillsType: "",
   stereotype: "",
-  speciality: "",
+  specialty: "",
   characterSkills: {
     typingSpeed: 1,
     javascript: 1,
@@ -47,7 +47,10 @@ function counterReducer(state = initialState, action) {
       };
 
     case types.SPECIALTYUPDATE:
-      return {};
+      return {
+        ...state,
+        specialty: action.payload.specialty
+      };
 
     default:
       return state;

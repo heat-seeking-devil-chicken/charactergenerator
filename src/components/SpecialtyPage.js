@@ -4,8 +4,22 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 
-const SpecialtyPage = () => {
+import * as actions from "../actions/actions";
+import { connect } from "react-redux";
+
+const mapDispatchToProps = dispatch => ({
+  specialtyUpdate: payload => dispatch(actions.specialtyUpdate(payload))
+});
+
+const SpecialtyPage = props => {
   const [expanded, setExpanded] = React.useState(false);
+  const [specialty, setSpecialty] = React.useState("");
+
+  function saveInfo() {
+    props.specialtyUpdate({
+      specialty
+    });
+  }
 
   const handleChange = panel => isExpanded => {
     setExpanded(isExpanded ? panel : false);
@@ -23,6 +37,13 @@ const SpecialtyPage = () => {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
+          <button
+            onClick={() => {
+              setSpecialty("Front-End Developer");
+            }}
+          >
+            Select Specialty
+          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
@@ -61,6 +82,7 @@ const SpecialtyPage = () => {
           <Typography>Here's some info about the thing</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <button onClick={saveInfo}>Save Specialty</button>
 
       {/* <div>
         <Link to="/character">
@@ -78,4 +100,7 @@ const SpecialtyPage = () => {
   );
 };
 
-export default SpecialtyPage;
+export default connect(
+  null,
+  mapDispatchToProps
+)(SpecialtyPage);
