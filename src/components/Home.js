@@ -3,7 +3,7 @@ import * as actions from "../actions/actions";
 import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => ({
-  homeUpdate: (prop, payload) => dispatch(actions.homeUpdate(prop, payload))
+  homeUpdate: payload => dispatch(actions.homeUpdate(payload))
 });
 
 const names = {

@@ -15,10 +15,8 @@ const SpecialtyPage = props => {
   const [expanded, setExpanded] = React.useState(false);
   const [specialty, setSpecialty] = React.useState("");
 
-  function saveInfo() {
-    props.specialtyUpdate({
-      specialty
-    });
+  function saveInfo(payload) {
+    props.specialtyUpdate(payload);
   }
 
   const handleChange = panel => (event, isExpanded) => {
@@ -31,83 +29,62 @@ const SpecialtyPage = props => {
       <ExpansionPanel
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
+        onClick={() => {
+          saveInfo({ specialty: "Front End Developer" });
+        }}
       >
-        <ExpansionPanelSummary
-          onClick={() => {
-            setSpecialty("Front-End Developer");
-          }}
-        >
+        <ExpansionPanelSummary>
           <Typography>Front End Developer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
-          <button
-            onClick={() => {
-              setSpecialty("Front-End Developer");
-            }}
-          >
-            Select Specialty
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
+        onClick={() => {
+          saveInfo({ specialty: "Back End Developer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Back End Developer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
-          <button
-            onClick={() => {
-              setSpecialty("Back-End Developer");
-            }}
-          >
-            Select Specialty
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
+        onClick={() => {
+          saveInfo({ specialty: "Full Stack Developer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Full Stack Developer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
-          <button
-            onClick={() => {
-              setSpecialty("Full-Stack Developer");
-            }}
-          >
-            Select Specialty
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
+        onClick={() => {
+          saveInfo({ specialty: "DevOps Engineer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>DevOps Engineer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's some info about the thing</Typography>
-          <button
-            onClick={() => {
-              setSpecialty("DevOps Engineer");
-            }}
-          >
-            Select Specialty
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <button onClick={saveInfo}>Save Specialty</button>
     </div>
   );
 };

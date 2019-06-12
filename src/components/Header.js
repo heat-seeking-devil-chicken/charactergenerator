@@ -56,8 +56,9 @@ const Header = () => {
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     // dispach action creator
-    if (steps[activeStep] === "Home") {
-    }
+    // if (steps[activeStep] === "Home") {
+    //   this.props.homeUpdate();
+    // }
   }
 
   function handleBack() {

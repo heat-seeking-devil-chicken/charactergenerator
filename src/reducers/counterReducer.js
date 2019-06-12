@@ -18,7 +18,6 @@ const initialState = {
 function counterReducer(state = initialState, action) {
   switch (action.type) {
     case types.HOMEUPDATE:
-      console.log(action.payload);
       const info = action.payload;
       return {
         ...state,
