@@ -2,27 +2,26 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   name: "",
-  advancementType: "",
-  codingSkillsType: "",
+  advancementType: "Milestone",
+  codingSkillsType: "Manual",
+  specialty: "",
   stereotype: "",
-  speciality: "",
   characterSkills: {
-    typingSpeed: 1,
-    javascript: 1,
-    sleepResistance: 1,
-    googleFu: 1,
-    hygiene: 1
+    typingSpeed: 10,
+    javascript: 10,
+    sleepResistance: 10,
+    googleFu: 10,
+    hygiene: 10
   }
 };
 
 function counterReducer(state = initialState, action) {
   switch (action.type) {
     case types.HOMEUPDATE:
+      const info = action.payload;
       return {
         ...state,
-        name: action.payload.name,
-        advancementType: action.payload.advancementType,
-        codingSkillsType: action.payload.codingSkillsType
+        ...info
       };
 
     case types.STEREOTYPEUPDATE:
@@ -47,7 +46,10 @@ function counterReducer(state = initialState, action) {
       };
 
     case types.SPECIALTYUPDATE:
-      return {};
+      return {
+        ...state,
+        specialty: action.payload.specialty
+      };
 
     default:
       return state;

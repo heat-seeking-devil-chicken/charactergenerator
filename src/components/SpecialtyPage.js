@@ -4,10 +4,21 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 
-const SpecialtyPage = () => {
+import * as actions from "../actions/actions";
+import { connect } from "react-redux";
+
+const mapDispatchToProps = dispatch => ({
+  specialtyUpdate: payload => dispatch(actions.specialtyUpdate(payload))
+});
+
+const SpecialtyPage = props => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = panel => isExpanded => {
+  function saveInfo(payload) {
+    props.specialtyUpdate(payload);
+  }
+
+  const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
@@ -17,6 +28,9 @@ const SpecialtyPage = () => {
       <ExpansionPanel
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
+        onClick={() => {
+          saveInfo({ specialty: "Front End Developer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Front End Developer</Typography>
@@ -29,6 +43,9 @@ const SpecialtyPage = () => {
       <ExpansionPanel
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
+        onClick={() => {
+          saveInfo({ specialty: "Back End Developer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Back End Developer</Typography>
@@ -41,6 +58,9 @@ const SpecialtyPage = () => {
       <ExpansionPanel
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
+        onClick={() => {
+          saveInfo({ specialty: "Full Stack Developer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Full Stack Developer</Typography>
@@ -53,6 +73,9 @@ const SpecialtyPage = () => {
       <ExpansionPanel
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
+        onClick={() => {
+          saveInfo({ specialty: "DevOps Engineer" });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>DevOps Engineer</Typography>
@@ -61,21 +84,11 @@ const SpecialtyPage = () => {
           <Typography>Here's some info about the thing</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-
-      {/* <div>
-        <Link to="/character">
-          <button style={leftButton}>
-            <ArrowBack />
-          </button>
-        </Link>
-        <Link to="/description">
-          <button style={rightButton}>
-            <ArrowForward />
-          </button>
-        </Link>
-      </div> */}
     </div>
   );
 };
 
-export default SpecialtyPage;
+export default connect(
+  null,
+  mapDispatchToProps
+)(SpecialtyPage);

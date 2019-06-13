@@ -12,28 +12,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const CharacterPage = props => {
-  const [stereotype, setStereoType] = React.useState("");
   const [expanded, setExpanded] = React.useState(false);
-  const [typingSpeed, setTypingSpeed] = React.useState(10);
-  const [javascript, setJavascript] = React.useState(10);
-  const [sleepResistance, setSleepResistance] = React.useState(10);
-  const [googleFu, setGoogleFu] = React.useState(10);
-  const [hygiene, setHygiene] = React.useState(10);
 
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
-  function saveInfo() {
-    props.stereotypeUpdate({
-      stereotype,
-      typingSpeed,
-      javascript,
-      sleepResistance,
-      googleFu,
-      hygiene
-    });
-  }
 
   return (
     <div>
@@ -42,99 +25,90 @@ const CharacterPage = props => {
       <ExpansionPanel
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
+        onClick={() => {
+          props.stereotypeUpdate({
+            stereotype: "Brogrammer",
+            typingSpeed: 12,
+            javascript: 11,
+            sleepResistance: 14,
+            googleFu: 8,
+            hygiene: 6
+          });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Brogrammer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
-          <button
-            onClick={() => {
-              setStereoType("Brogrammer");
-              setTypingSpeed(12);
-              setJavascript(11);
-              setSleepResistance(14);
-              setGoogleFu(10);
-              setHygiene(6);
-            }}
-          >
-            Choose stereotype
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
+        onClick={() => {
+          props.stereotypeUpdate({
+            stereotype: "Hacker",
+            typingSpeed: 15,
+            javascript: 13,
+            sleepResistance: 10,
+            googleFu: 8,
+            hygiene: 4
+          });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Hacker</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
-          <button
-            onClick={() => {
-              setStereoType("Hacker");
-              setTypingSpeed(4);
-              setJavascript(4);
-              setSleepResistance(3);
-              setGoogleFu(10);
-              setHygiene(10);
-            }}
-          >
-            Choose stereotype
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
+        onClick={() => {
+          props.stereotypeUpdate({
+            stereotype: "Lazy Genius",
+            typingSpeed: 7,
+            javascript: 15,
+            sleepResistance: 4,
+            googleFu: 13,
+            hygiene: 8
+          });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Lazy Genius</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
-          <button
-            onClick={() => {
-              setStereoType("Lazy Genius");
-              setTypingSpeed(4);
-              setJavascript(4);
-              setSleepResistance(3);
-              setGoogleFu(10);
-              setHygiene(10);
-            }}
-          >
-            Choose stereotype
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
       <ExpansionPanel
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
+        onClick={() => {
+          props.stereotypeUpdate({
+            stereotype: "Code Golfer",
+            typingSpeed: 6,
+            javascript: 16,
+            sleepResistance: 14,
+            googleFu: 13,
+            hygiene: 9
+          });
+        }}
       >
         <ExpansionPanelSummary>
           <Typography>Code Golfer</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>Here's someinfo about the thing</Typography>
-          <button
-            onClick={() => {
-              setStereoType("Code Golfer");
-              setTypingSpeed(4);
-              setJavascript(4);
-              setSleepResistance(3);
-              setGoogleFu(10);
-              setHygiene(10);
-            }}
-          >
-            Choose stereotype
-          </button>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <button onClick={saveInfo}> Save Character Choice </button>
     </div>
   );
 };
