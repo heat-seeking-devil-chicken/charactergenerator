@@ -39,14 +39,14 @@ body {
 
 .stepperStyle {
   margin: 25px auto 0;
-  width: 50%;
+  width: 70%;
   padding: 10px;
 }
 
 .leftButton {
   position: absolute;
   top: 125px;
-  left: 300px;
+  left: 200px;
   padding: 7px 12px;
   border: "1px solid black";
 }
@@ -54,7 +54,7 @@ body {
 .rightButton {
   position: absolute;
   top: 125px;
-  right: 300px;
+  right: 200px;
   padding: 7px 12px;
   border: "1px solid black";
 }
