@@ -13,32 +13,106 @@ const mapStateToProps = store => ({
 });
 
 const Description = props => {
-  const [spacing, setSpacing] = React.useState(2);
+  const bodyStyle = {
+    textAlign: "center",
+    border: "1px solid black",
+    backgroundColor: "lightGray",
+    padding: "5px 0 35px",
+    marginTop: "15px"
+  };
 
-  const skillNums = [];
+  const paper = {
+    padding: "10px 5px",
+    height: "50px",
+    width: "120px",
+    textAlign: "center",
+    backgroundColor: "cornflowerBlue",
+    color: "white"
+  };
+
+  const upperPaper = {
+    padding: "5px",
+    height: "75px",
+    width: "120px",
+    textAlign: "center",
+    backgroundColor: "cornflowerBlue",
+    color: "white"
+  };
+
+  const skills = [
+    "Typing Speed",
+    "JavaScript",
+    "Sleep Resistance",
+    "Google Fu",
+    "Hygiene"
+  ];
+
+  let skillsArr = [];
 
   for (const prop in props.characterSkills) {
-    skillNums.push(
-      <Grid key={prop}>
-        <Paper>{`${prop}: ${props.characterSkills[prop]}`}</Paper>
-      </Grid>
-    );
+    skillsArr.push(props.characterSkills[prop]);
   }
 
+  skillsArr = skillsArr.map((el, idx) => [skills[idx], el]);
+
+  const skillNums = skillsArr.map(el => {
+    return (
+      <Grid item key={el[0]}>
+        <Paper style={paper}>
+          {el[0]} <br /> {el[1]}
+        </Paper>
+      </Grid>
+    );
+  });
+
   return (
-    <div>
-      <p>{props.name}</p>
-      <p>{`Advancement Type: ${props.advancementType}`}</p>
-      <p>{`Coding Skills Type: ${props.codingSkillsType}`}</p>
-      <p>{`Stereotype: ${props.stereotype}`}</p>
-      <p>{`Specialty: ${props.specialty}`}</p>
-      <p>Skills: </p>
-      <Grid>
-        <Grid item xs={12}>
-          <Grid container justify="center" spacing={spacing}>
-            {skillNums}
+    <div style={bodyStyle}>
+      <h1>{props.name}</h1>
+      <Grid container>
+        <Grid item>
+          <h1>Advancement Type: </h1>
+          <Grid container justify="center">
+            <Grid item>
+              <Paper style={upperPaper}>
+                <h3>{props.advancementType}</h3>
+              </Paper>
+            </Grid>
+          </Grid>
+
+          <h1>Coding Skills Type: </h1>
+          <Grid container justify="center">
+            <Grid item xs={6}>
+              <Paper style={upperPaper}>
+                <h3>{props.codingSkillsType}</h3>
+              </Paper>
+            </Grid>
           </Grid>
         </Grid>
+
+        <Grid item>
+          <h1>Stereotype:</h1>
+          <Grid container justify="center">
+            <Grid item>
+              <Paper style={upperPaper}>
+                <h3>{props.stereotype}</h3>
+              </Paper>
+            </Grid>
+          </Grid>
+
+          <h1>Specialty:</h1>
+          <Grid container justify="center">
+            <Grid item>
+              <Paper style={upperPaper}>
+                <h3>{props.specialty}</h3>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <h1>Skills </h1>
+      <Grid container justify="center" spacing={3}>
+        {skillNums}
       </Grid>
     </div>
   );
