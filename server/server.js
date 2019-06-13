@@ -36,19 +36,23 @@ app.get('/favicon.ico', (req, res) => {
     
 });
 
-app.get('/static/css/main.ba49ec77.chunk.css', (req, res) => {
+app.get('/static/css/main.faa6b542.chunk.css', (req, res) => {
     console.log('request url:',req.url);
-    res.sendFile(path.join(__dirname, '../build/static/css/main.ba49ec77.chunk.css')) 
+    res.sendFile(path.join(__dirname, '../build/static/css/main.faa6b542.chunk.css')) 
 });
-app.get('/static/js/2.58a5c1d7.chunk.js', (req, res) => {
+app.get('/static/js/2.3a2d5f9e.chunk.js', (req, res) => {
     console.log('request url:',req.url);
-    res.sendFile(path.join(__dirname, '../build/static/js/2.58a5c1d7.chunk.js'))
-    
+    res.sendFile(path.join(__dirname, '../build/static/js/2.3a2d5f9e.chunk.js'))   
 });
-app.get('/static/js/main.e3bf5927.chunk.js', (req, res) => {
+
+app.get('/static/js/main.2de7b42c.chunk.js', (req, res) => {
     console.log('request url:',req.url);
-    res.sendFile(path.join(__dirname, '../build/static/js/main.e3bf5927.chunk.js'))
-    
+    res.sendFile(path.join(__dirname, '../build/static/js/main.2de7b42c.chunk.js'))
+});
+
+app.get('/static/media/web-design-2906159_960_720.f5705611.jpg', (req, res) => {
+    console.log('request url:',req.url);
+    res.sendFile(path.join(__dirname, '../build/static/media/web-design-2906159_960_720.f5705611.jpg'))
 });
 
 app.post('/login', authentication.verifyLogin ,(req, res) => {
