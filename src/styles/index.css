@@ -1,0 +1,102 @@
+body {
+  background-image: url("web-design-2906159_960_720.jpg");
+  height: 75%;
+  background-repeat: repeat;
+  background-size: cover;
+  color: white;
+  width: 100%;
+}
+
+.main {
+  width: 40%;
+  margin: 0 auto;
+}
+
+/******* HEADER STYLING *******/
+/* style for navlink */
+.header {
+  margin-top: 2%;
+  width: 100%;
+  margin-left: 40%;
+}
+
+.headerH1 {
+  font-size: 2.4em;
+  margin-bottom: 2%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+}
+
+.ArrowButtons {
+  display: "flex";
+  justify-content: "space-between";
+}
+
+.specialtyAttr {
+  padding-right: "2%";
+  padding-left: "5%";
+}
+
+.stepperStyle {
+  margin-top: 2%;
+  margin-left: -15%;
+  width: 50%;
+  padding: 10px;
+}
+
+.leftButton {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  padding: 7px 12px;
+  border: "1px solid black";
+}
+
+.rightButton {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  padding: 7px 12px;
+  border: "1px solid black";
+}
+
+.leftButton:hover,
+.rightButton:hover {
+  background-color: cornflowerblue;
+}
+
+/**** home page styling ****/
+.home {
+  text-align: center;
+}
+
+.input {
+  height: 30px;
+  width: 250px;
+  font-size: 1.3em;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.button {
+  font-size: 1.1em;
+  margin: 15px 0px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.button:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.expansionPanel {
+  padding: 25px;
+  margin-top: -20px;
+}
