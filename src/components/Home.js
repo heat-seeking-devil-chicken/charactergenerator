@@ -11,7 +11,7 @@ const names = {
   1: "Aidan",
   2: "Alyvia",
   3: "Alex",
-  4: "Mikey",
+  4: "Lil' Mikey",
   5: "Sam",
   6: "Jay",
   7: "Johnny",
@@ -52,8 +52,11 @@ const adjectives = {
   13: "Sober",
   14: "Drunk",
   15: "Crazy",
-  16: "Calm"
-  // 17:
+  16: "Calm",
+  17: "Wild",
+  18: "Insane",
+  19: "Dramatic",
+  20: "Frail"
 };
 class Home extends React.Component {
   constructor(props) {
@@ -68,8 +71,8 @@ class Home extends React.Component {
   }
 
   randomName() {
-    const newName = names[Math.floor(Math.random() * 25)];
-    const adjective = adjectives[Math.floor(Math.random() * 16)];
+    const newName = names[Math.floor(Math.random() * 26)];
+    const adjective = adjectives[Math.floor(Math.random() * 21)];
     this.setState({
       name: newName + " the " + adjective
     });
@@ -83,17 +86,19 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        {/* <img className="avatar" /> */}
-        <h4>Character Name</h4>
+        <h1>Character Name</h1>
         <input
+          className="input"
           type="text"
-          placeholder="ex. Silver the unSober"
+          placeholder="ex. Silver the SuperSober"
           value={this.state.name}
           onChange={e => {
             this.setState({ name: e.target.value });
           }}
         />
+        <br />
         <button
+          className="button"
           onClick={e => {
             this.saveInfo({ name: this.randomName() });
           }}
@@ -102,23 +107,27 @@ class Home extends React.Component {
         </button>
         <hr />
 
-        <h2>Character Preferences</h2>
-        <h4>Advancement Type:</h4>
-        <p>Milestone-based character progression / XP-based progression</p>
+        <h1>Character Preferences</h1>
+        <h2>Advancement Type:</h2>
+        <h3>Milestone-based character progression / XP-based progression</h3>
 
         <select
+          className="button"
           onChange={e => this.saveInfo({ advancementType: e.target.value })}
         >
           <option value="Milestone">Milestone</option>
           <option value="XP">XP</option>
         </select>
 
-        <h4>Coding Skills Type</h4>
-        <p>
+        <h2>Coding Skills Type</h2>
+        <h3>
           When leveling up, increase hit points (health) by the fixed value for
           your chosen class or manually enter a rolled value.
-        </p>
-        <select onChange={e => this.saveInfo({ specialty: e.target.value })}>
+        </h3>
+        <select
+          className="button"
+          onChange={e => this.saveInfo({ specialty: e.target.value })}
+        >
           <option value="Fixed">Fixed</option>
           <option value="Manual">Manual</option>
         </select>
