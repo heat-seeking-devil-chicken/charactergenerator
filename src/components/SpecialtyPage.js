@@ -13,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
 
 const SpecialtyPage = props => {
   const [expanded, setExpanded] = React.useState(false);
-  const [specialty, setSpecialty] = React.useState("");
 
   function saveInfo(payload) {
     props.specialtyUpdate(payload);

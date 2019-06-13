@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 const mapStateToProps = store => ({
   name: store.counterReducer.name,
@@ -11,14 +13,18 @@ const mapStateToProps = store => ({
 });
 
 const Description = props => {
+  const [spacing, setSpacing] = React.useState(2);
+
   const skillNums = [];
 
   for (const prop in props.characterSkills) {
     skillNums.push(
-      <p key={prop}>{`${prop}: ${props.characterSkills[prop]}`}</p>
+      <Grid key={prop}>
+        <Paper>{`${prop}: ${props.characterSkills[prop]}`}</Paper>
+      </Grid>
     );
   }
-  console.log(props);
+
   return (
     <div>
       <p>{props.name}</p>
@@ -27,7 +33,13 @@ const Description = props => {
       <p>{`Stereotype: ${props.stereotype}`}</p>
       <p>{`Specialty: ${props.specialty}`}</p>
       <p>Skills: </p>
-      <div>{skillNums}</div>
+      <Grid>
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={spacing}>
+            {skillNums}
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 };
