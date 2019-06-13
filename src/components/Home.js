@@ -108,21 +108,25 @@ class Home extends React.Component {
         <hr />
 
         <h1>Character Preferences</h1>
-        <h2>Advancement Type:</h2>
-        <h3>Milestone-based character progression / XP-based progression</h3>
+        <h2>Education Progression Type:</h2>
+        <h3>
+          Self-taught progression / CS Degree Progression / CodeSmith
+          Progression
+        </h3>
 
         <select
           className="button"
           onChange={e => this.saveInfo({ advancementType: e.target.value })}
         >
-          <option value="Milestone">Milestone</option>
-          <option value="XP">XP</option>
+          <option value="Self-Taught">Self-Taught</option>
+          <option value="CS Degree">CS Degree</option>
+          <option value="CodeSmith">CodeSmith</option>
         </select>
 
-        <h2>Coding Skills Type</h2>
+        <h2>Skill Upgrade Type:</h2>
         <h3>
-          When leveling up, increase hit points (health) by the fixed value for
-          your chosen class or manually enter a rolled value.
+          When leveling up, increase skill points by: <br /> -The fixed value
+          for your chosen class <br /> -Manually enter a rolled value
         </h3>
         <select
           className="button"
