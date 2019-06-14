@@ -94,3 +94,13 @@ body {
   padding: 25px;
   margin-top: -20px;
 }
+
+.login-wrapper {
+  width: 100%;
+}
+
+.login {
+  margin: 18% auto 0;
+  width: 450px;
+  text-align: center;
+}

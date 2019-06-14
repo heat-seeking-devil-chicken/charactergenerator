@@ -12,7 +12,9 @@ const initialState = {
     sleepResistance: 10,
     googleFu: 10,
     hygiene: 10
-  }
+  },
+  characters: [],
+  login: false
 };
 
 function counterReducer(state = initialState, action) {
@@ -22,6 +24,13 @@ function counterReducer(state = initialState, action) {
       return {
         ...state,
         ...info
+      };
+    case types.PASSVERIFICATION:
+      console.log("reducer action.payload", action.payload.payload.rows);
+      return {
+        ...state,
+        login: true,
+        characters: action.payload.payload.rows
       };
 
     case types.STEREOTYPEUPDATE:

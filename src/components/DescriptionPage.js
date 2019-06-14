@@ -142,7 +142,11 @@ const Description = props => {
       <Grid container justify="center" spacing={3}>
         {skillNums}
       </Grid>
+      <div style={bodyStyle}>
+        <button id="saveToServer"> Save To Server </button>
+      </div>
     </div>
+
   );
 };
 
