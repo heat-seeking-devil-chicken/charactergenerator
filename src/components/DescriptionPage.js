@@ -51,7 +51,7 @@ const Description = props => {
   };
 
   const bigAvatar = {
-    margin: "60px auto 0",
+    margin: "0 auto",
     width: "250px",
     height: "250px"
   };
@@ -105,6 +105,7 @@ const Description = props => {
           </Grid>
         </Grid>
         <Grid item xs={4}>
+          <h3>Character Avatar</h3>
           {props.stereotype === "Brogrammer" ? (
             <Avatar alt="Programmer" style={bigAvatar} src={brogrammer} />
           ) : props.stereotype === "Hacker" ? (
@@ -142,11 +143,12 @@ const Description = props => {
       <Grid container justify="center" spacing={3}>
         {skillNums}
       </Grid>
-      <div style={bodyStyle}>
-        <button id="saveToServer"> Save To Server </button>
+      <div>
+        <button className="button" id="saveToServer">
+          Save To Server
+        </button>
       </div>
     </div>
-
   );
 };
 
