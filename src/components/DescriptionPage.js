@@ -2,6 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Avatar from "@material-ui/core/Avatar";
+
+import brogrammer from "../styles/images/brogrammer.png";
+import hacker from "../styles/images/hacker.jpg";
+import lazy from "../styles/images/lazy-genius.jpg";
+import golfer from "../styles/images/code-golfer.jpg";
+import ninja from "../styles/images/code-ninja.jpg";
 
 const mapStateToProps = store => ({
   name: store.counterReducer.name,
@@ -16,9 +23,11 @@ const Description = props => {
   const bodyStyle = {
     textAlign: "center",
     border: "1px solid black",
-    backgroundColor: "lightGray",
+    backgroundColor: "#FFFAF0",
     padding: "5px 0 35px",
-    marginTop: "15px"
+    marginTop: "15px",
+    color: "black",
+    borderRadius: "3px"
   };
 
   const paper = {
@@ -27,7 +36,8 @@ const Description = props => {
     width: "120px",
     textAlign: "center",
     backgroundColor: "cornflowerBlue",
-    color: "white"
+    color: "white",
+    border: "0.5px solid black"
   };
 
   const upperPaper = {
@@ -36,7 +46,14 @@ const Description = props => {
     width: "120px",
     textAlign: "center",
     backgroundColor: "cornflowerBlue",
-    color: "white"
+    color: "white",
+    border: "0.5px solid black"
+  };
+
+  const bigAvatar = {
+    margin: "0 auto",
+    width: "250px",
+    height: "250px"
   };
 
   const skills = [
@@ -69,7 +86,7 @@ const Description = props => {
     <div style={bodyStyle}>
       <h1>{props.name}</h1>
       <Grid container>
-        <Grid item>
+        <Grid item xs={4}>
           <h1>Advancement Type: </h1>
           <Grid container justify="center">
             <Grid item>
@@ -78,18 +95,31 @@ const Description = props => {
               </Paper>
             </Grid>
           </Grid>
-
           <h1>Coding Skills Type: </h1>
           <Grid container justify="center">
-            <Grid item xs={6}>
+            <Grid item>
               <Paper style={upperPaper}>
                 <h3>{props.codingSkillsType}</h3>
               </Paper>
             </Grid>
           </Grid>
         </Grid>
+        <Grid item xs={4}>
+          <h3>Character Avatar</h3>
+          {props.stereotype === "Brogrammer" ? (
+            <Avatar alt="Programmer" style={bigAvatar} src={brogrammer} />
+          ) : props.stereotype === "Hacker" ? (
+            <Avatar alt="Hacker" style={bigAvatar} src={hacker} />
+          ) : props.stereotype === "Lazy Genius" ? (
+            <Avatar alt="Lazy-Genius" style={bigAvatar} src={lazy} />
+          ) : props.stereotype === "Code Golfer" ? (
+            <Avatar alt="Code-Golfer" style={bigAvatar} src={golfer} />
+          ) : props.stereotype === "Ninja" ? (
+            <Avatar alt="Code-Ninja" style={bigAvatar} src={ninja} />
+          ) : null}
+        </Grid>
 
-        <Grid item>
+        <Grid item xs={4}>
           <h1>Stereotype:</h1>
           <Grid container justify="center">
             <Grid item>
@@ -98,7 +128,6 @@ const Description = props => {
               </Paper>
             </Grid>
           </Grid>
-
           <h1>Specialty:</h1>
           <Grid container justify="center">
             <Grid item>
@@ -114,11 +143,12 @@ const Description = props => {
       <Grid container justify="center" spacing={3}>
         {skillNums}
       </Grid>
-      <div style={bodyStyle}>
-        <button id="saveToServer"> Save To Server </button>
+      <div>
+        <button className="button" id="saveToServer">
+          Save To Server
+        </button>
       </div>
     </div>
-
   );
 };
 

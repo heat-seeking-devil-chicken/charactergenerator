@@ -26,10 +26,11 @@ function counterReducer(state = initialState, action) {
         ...info
       };
     case types.PASSVERIFICATION:
-      console.log('reducer action.payload',action.payload)
+      console.log("reducer action.payload", action.payload.payload.rows);
       return {
         ...state,
-        login: true
+        login: true,
+        characters: action.payload.payload.rows
       };
 
     case types.STEREOTYPEUPDATE:
@@ -51,6 +52,12 @@ function counterReducer(state = initialState, action) {
           googleFu,
           hygiene
         }
+      };
+    case types.SAVETODB:
+      character = character.slice();
+      character.push({});
+      return {
+        ...state
       };
 
     case types.SPECIALTYUPDATE:

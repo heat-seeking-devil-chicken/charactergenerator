@@ -5,6 +5,8 @@ import { Provider, connect } from "react-redux";
 import reducers from "../reducers/index";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+import Splash from "../components/Splash";
+
 import Header from "../components/Header";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
@@ -17,41 +19,44 @@ import * as actions from "../actions/actions";
 const store = createStore(reducers, composeWithDevTools());
 
 const mapStateToProps = store => ({
-  login: store.counterReducer.login,
+  login: store.counterReducer.login
 });
 const mapDispachToProps = dispatch => ({
   verifyLogin: payload => dispatch(actions.homeUpdate(payload))
-})
+});
 class AppRouter extends React.Component {
-  
-  render(){
+  render() {
     return (
-        <BrowserRouter>
-          <div>
-            
-              <Switch>
-                {this.props.login === false ?<Route path='/' verifyLogin ={this.props.verifyLogin} component={Login}/> : (
-                <>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            {this.props.login === false ? (
+              <Route
+                path="/"
+                verifyLogin={this.props.verifyLogin}
+                component={Login}
+              />
+            ) : (
+              <>
                 <Header className="header" />
                 <div className="main">
-                  
-                <Route path="/" exact={true} component={Home} />
-                <Route path="/specialty" component={SpecialtyPage} />
-                <Route path="/character" component={CharacterPage} />
-                <Route path="/description" component={DescriptionPage} />
-                <Route path="/*" component={ErrorPage} />
-                
+                  <Switch>
+                    <Route path="/" exact={true} component={Splash} />
+                    <Route path="/preferences" component={Home} />
+                    <Route path="/specialty" component={SpecialtyPage} />
+                    <Route path="/character" component={CharacterPage} />
+                    <Route path="/description" component={DescriptionPage} />
+                    <Route path="/*" component={ErrorPage} />
+                  </Switch>
                 </div>
-                </>
-                )}
-                
-              </Switch>
-            </div>
-          
-        </BrowserRouter>
-    )
-  }  // 
-};
+              </>
+            )}
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  } //
+}
 
 export default connect(
   mapStateToProps,

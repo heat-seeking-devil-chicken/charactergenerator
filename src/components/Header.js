@@ -26,11 +26,11 @@ const mapStateToProps = store => ({
 });
 
 const Header = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(1);
   const [hover, setHoverState] = React.useState("false");
 
   function getSteps() {
-    return ["Home", "Character", "Specialty", "Description"];
+    return ["Home", "Preferences", "Character", "Specialty", "Description"];
   }
 
   function handleNext() {
@@ -42,7 +42,7 @@ const Header = () => {
   }
 
   function getLinkRoute() {
-    return ["/", "/character", "/specialty", "/description"];
+    return ["/", "preferences", "/character", "/specialty", "/description"];
   }
 
   const steps = getSteps();
@@ -89,7 +89,7 @@ const Header = () => {
           </Link>
         </>
       ) : (
-        <Link to={"/character"}>
+        <Link to={"/preferences"}>
           <button className="rightButton" onClick={handleNext}>
             <ArrowForward />
           </button>

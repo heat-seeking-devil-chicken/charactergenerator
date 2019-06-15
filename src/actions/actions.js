@@ -1,31 +1,43 @@
 import * as types from "../constants/actionTypes";
-import axios from 'axios';
+import axios from "axios";
 
 export const verifyLogin = (username, password) => (dispatch, getState) => {
-  const credential = {username: username, password: password};
-  axios.post('/login', credential)
-  .then(res => {
-    if(res.status === 200){
-      return dispatch(
-        passVerification({
+  const credential = { username: username, password: password };
+  axios
+    .post("/login", credential)
+    .then(res => {
+      if (res.status === 200) {
+        return dispatch(
+          passVerification({
             type: types.PASSVERIFICATION,
             payload: res.data
-        })
-      );
-    }
-  }).catch(err => {
-    console.log(err)
-  })
-  ;
+          })
+        );
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+// export const saveToDB = (payload) => (dispatch, getState) => {
+//   const { name, advancementType, specialty, stereotype, codingSkillsType } = getState();
+
+//   axios.post('createCharacter', )
+// }
+
+export const saveToDB = payload => {
+  return {
+    type: types.SAVETODB,
+    payload: payload
+  };
 };
 
 export const passVerification = payload => {
-return(
-    {
-      type: types.PASSVERIFICATION,
-      payload: payload
-    }
-  )
+  return {
+    type: types.PASSVERIFICATION,
+    payload: payload
+  };
 };
 
 // export const verifyLogin = (username, password) => (dispatch,getState) => {
@@ -57,8 +69,6 @@ return(
 //       )
 //     )
 // }
-
-
 
 export const homeUpdate = payload => ({
   type: types.HOMEUPDATE,
