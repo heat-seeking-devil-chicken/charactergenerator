@@ -53,6 +53,12 @@ function counterReducer(state = initialState, action) {
           hygiene
         }
       };
+    case types.SAVETODB:
+      character = character.slice();
+      character.push({});
+      return {
+        ...state
+      };
 
     case types.SPECIALTYUPDATE:
       return {
